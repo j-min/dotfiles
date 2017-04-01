@@ -5,7 +5,7 @@ syntax enable
 
 " Monokai color scheme
 " mkdir -p ~/.vim/colors
-" wget https://raw.githubusercontent.com/crusoexia/vim-monokai/master/colors/monokai.vim ~/.vim/colors
+" wget https://raw.githubusercontent.com/crusoexia/vim-monokai/master/colors/monokai.vim -P ~/.vim/colors
 colorscheme monokai
 
 " Solarized color scheme
