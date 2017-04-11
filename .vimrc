@@ -1,6 +1,6 @@
 set nocompatible              " required
 " filetype off                  " required
-syntax on
+" syntax on
 syntax enable
 
 " Monokai color scheme
@@ -18,8 +18,12 @@ set fileencodings=utf-8,cp949
 " Line numbering
 set nu 
 
-" Tab = 4 spaces
-set ts=4
+" Indendations
+set autoindent
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
+
 
 " Smart Indentation
 " set smartindent
@@ -72,7 +76,7 @@ nnoremap <silent> <F9> :!clear;python %:p<CR>
 " Powerline
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 let g:Powerline_symbols = 'fancy'
-set rtp+=Users/home/jmin/anaconda3/lib/python3.5/dist-packages/powerline/bindings/vim/
+set rtp+=Users/home/jmin/anaconda/lib/python3.6/dist-packages/powerline/bindings/vim/
 set laststatus=2
 
 " Python Syntax/Highlighting
