@@ -6,8 +6,12 @@ SAVEHIST=10000
 
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
+# added by Anaconda3 4.1.1 installer
+export PATH=$HOME/anaconda/bin:$PATH
+# export PYTHONPATH=$HOME/anaconda3/bin/python
 
-export PATH=$HOME/anaconda3/bin:$PATH
+# Prior to the installation make sure you have committed the alias to your .bashrc or .zsh:
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # virtualenvs path
 # export WORKON_HOME=~/.virtualenvs
@@ -66,3 +70,7 @@ antigen bundle chucknorris
 
 # Tell antigen that you're done.
 antigen apply
+
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
+
