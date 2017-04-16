@@ -63,6 +63,11 @@ Plugin 'Valloric/YouCompleteMe'
 " Sync Clipboard
 set clipboard=unnamed
 
+" Dash Plugin
+Plugin 'rizzatti/dash.vim'
+:nmap <silent> <leader>c <Plug>DashGlobalSearch
+:nmap <silent> <leader>v <Plug>DashSearch
+
 """"""""""""""""""""""""""""""""""" 
 "             Python              "
 """""""""""""""""""""""""""""""""""
