@@ -1,6 +1,9 @@
 set nocompatible              " required
 " filetype off                  " required
 " syntax on
+
+:set mouse=a
+
 syntax enable
 
 " Monokai color scheme
