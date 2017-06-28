@@ -6,17 +6,14 @@ SAVEHIST=10000
 
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
-# added by Anaconda3 4.1.1 installer
-export PATH=$HOME/anaconda/bin:$PATH
-# export PYTHONPATH=$HOME/anaconda3/bin/python
 
-# virtualenvs path
-# export WORKON_HOME=~/.virtualenvs
-# source /usr/local/bin/virtualenvwrapper.sh
+# Alias Control
+source $HOME/.alias
 
 #####################
 ## Antigen configs ##
 #####################
+
 # Load Antigen
 source $ZSH/antigen.zsh
 
@@ -65,7 +62,8 @@ antigen bundle chucknorris
 # antigen bundle python
 # antigen bundle virtualenv
 
-# Tell antigen that you're done.
 antigen apply
+#############################
+# Antigen configration Done #
+#############################
 
-source $HOME/.alias
