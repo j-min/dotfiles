@@ -7,9 +7,6 @@ SAVEHIST=10000
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
 
-# Alias Control
-source $HOME/.alias
-
 #####################
 ## Antigen configs ##
 #####################
@@ -67,3 +64,5 @@ antigen apply
 # Antigen configration Done #
 #############################
 
+# Alias Control
+source $HOME/.alias
