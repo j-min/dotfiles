@@ -1,0 +1,20 @@
+
+
+# Replacement for 'find'
+unalias fd
+
+# Replacement for 'ls'
+alias ls=exa
+alias la='ls -la'
+
+# Replacement for 'git' for dotfile congiration
+# Prior to the installation make sure you have committed the alias to your .bashrc or .zsh:
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+
+if [[ `uname` == 'Darwin' ]]
+then
+	alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+	alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
+fi
+

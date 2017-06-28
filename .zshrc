@@ -10,9 +10,6 @@ export LANG=en_US.UTF-8
 export PATH=$HOME/anaconda/bin:$PATH
 # export PYTHONPATH=$HOME/anaconda3/bin/python
 
-# Prior to the installation make sure you have committed the alias to your .bashrc or .zsh:
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
 # virtualenvs path
 # export WORKON_HOME=~/.virtualenvs
 # source /usr/local/bin/virtualenvwrapper.sh
@@ -71,6 +68,4 @@ antigen bundle chucknorris
 # Tell antigen that you're done.
 antigen apply
 
-alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
-
+source $HOME/.alias
