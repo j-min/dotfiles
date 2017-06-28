@@ -7,6 +7,9 @@ SAVEHIST=10000
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
 
+# import environment path
+source $HOME/.path
+
 #####################
 ## Antigen configs ##
 #####################
