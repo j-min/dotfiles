@@ -84,7 +84,6 @@ nnoremap <silent> <F9> :!clear;python %:p<CR>
 " Powerline
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 let g:Powerline_symbols = 'fancy'
-set rtp+=Users/home/jmin/anaconda/lib/python3.6/dist-packages/powerline/bindings/vim/
 set laststatus=2
 
 " Python Syntax/Highlighting
