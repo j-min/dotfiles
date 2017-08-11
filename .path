@@ -4,6 +4,10 @@ if [[ -d "$HOME/anaconda/bin" ]]; then
 	export PATH=$HOME/anaconda/bin:$PATH
 fi
 
+if [[ -d "$HOME/anaconda3/bin" ]]; then
+	export PATH=$HOME/anaconda3/bin:$PATH
+fi
+
 # Virtualenv & Virtualenvwrapper
 # export WORKON_HOME=~/.virtualenvs
 # source /usr/local/bin/virtualenvwrapper.sh

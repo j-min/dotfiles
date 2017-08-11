@@ -28,5 +28,10 @@ alias python2=python2.7
 
 # gpustat
 if  [ -x "$(command -v gpustat)" ]; then
-    alias 'watchgpu=watch --color -n0.2 gpustat'
+    alias watchgpu='watch --color -n0.2 gpustat'
+fi
+
+# cenv
+if [ -x "$(command -v conda)" ]; then
+    alias cenv='conda create --file ~/.make/conda-data-science-requirements.txt -n'
 fi
