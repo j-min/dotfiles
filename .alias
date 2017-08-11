@@ -18,3 +18,4 @@ then
 	alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
 
+alias julia="/Applications/Julia-0.6.app/Contents/Resources/julia/bin/julia"

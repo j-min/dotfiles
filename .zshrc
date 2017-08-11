@@ -5,6 +5,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 export TERM=xterm-256color
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # import environment path
@@ -17,6 +18,7 @@ source $HOME/.path
 # Load Antigen
 source $ZSH/antigen.zsh
 
+
 antigen use oh-my-zsh
 
 # Load various lib files
@@ -26,6 +28,7 @@ antigen bundle robbyrussell/oh-my-zsh lib/
 # antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
 
 # POWER LEVEL 9k
+# POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k/powerlevel9k.zsh-theme
 antigen theme https://github.com/bhilburn/powerlevel9k powerlevel9k
 # POWERLEVEL9K_MODE='awesome-patched'
 
@@ -47,7 +50,7 @@ antigen bundle tmuxinator
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle web-search
-antigen bundle chucknorris
+# antigen bundle chucknorris
 
 # For SSH, starting ssh-agent is annoying
 # antigen bundle ssh-agent
@@ -69,3 +72,6 @@ antigen apply
 
 # Alias Control
 source $HOME/.alias
+
+# Custom Functions
+source $HOME/.functions
