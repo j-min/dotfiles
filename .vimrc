@@ -1,18 +1,11 @@
-set nocompatible              " required
-" filetype off                  " required
-" syntax on
+set nocompatible
 
 set mouse=a
 
 syntax enable
 
 " Monokai color scheme
-" mkdir -p ~/.vim/colors
-" wget https://raw.githubusercontent.com/crusoexia/vim-monokai/master/colors/monokai.vim -P ~/.vim/colors
 colorscheme monokai
-
-" Solarized color scheme
-" colorscheme solarized
 
 " utf-8/cp949 support
 set encoding=utf-8
@@ -27,26 +20,14 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
+" Sync Clipboard
+set clipboard=unnamed
 
-" Smart Indentation
-" set smartindent
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" Install Vundle if not installed
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+" Directory for plugins
+call plug#begin('~/.vim/plugged')
 
 " File Browsing (Nerd Tree)
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 let NERDTreeWinPos = "left"
 let mapleader = "," " remaps leader key to ','
 noremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
@@ -58,15 +39,10 @@ nnoremap <C-F> :NERDTreeFind<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " Searching with Ctrl-P
-Plugin 'kien/ctrlp.vim'
-
-" Auto-completion
-
-" Sync Clipboard
-set clipboard=unnamed
+Plug 'kien/ctrlp.vim'
 
 " Dash Plugin
-Plugin 'rizzatti/dash.vim'
+Plug 'rizzatti/dash.vim'
 nmap <silent> <leader>c <Plug>DashGlobalSearch
 nmap <silent> <leader>v <Plug>DashSearch
 
@@ -81,31 +57,31 @@ au FileType python map <F2> : !python %:p
 nnoremap <silent> <F9> :!clear;python %:p<CR>
 
 " Powerline
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 let g:Powerline_symbols = 'fancy'
 set laststatus=2
 
 " Python Syntax/Highlighting
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " Python Syntax/Style checker
 " pip install flake8
-Plugin 'nvie/vim-flake8' " <F7>
+Plug 'nvie/vim-flake8', {'for': 'python'} " <F7>
 
 " Python Auto-indent
-Plugin 'vim-scripts/indentpython.vim'
+Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 
 " Python commenter
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter', {'for': 'python'}
 
 """"""""""""""""""""""""""""""""""" 
 "           JavaScript            "
 """""""""""""""""""""""""""""""""""
 " JavaScript Syntax, Highliting and Indentation
-Plugin 'pangloss/vim-javascript'
-Plugin 'crusoexia/vim-javascript-lib'
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+Plug 'crusoexia/vim-javascript-lib', {'for': 'javascript'}
+
 
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
