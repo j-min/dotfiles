@@ -41,6 +41,9 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 " Searching with Ctrl-P
 Plug 'kien/ctrlp.vim'
 
+" Syntax Check
+Plug 'scrooloose/syntastic'
+
 " Dash Plugin
 Plug 'rizzatti/dash.vim'
 nmap <silent> <leader>c <Plug>DashGlobalSearch
@@ -60,9 +63,6 @@ nnoremap <silent> <F9> :!clear;python %:p<CR>
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 let g:Powerline_symbols = 'fancy'
 set laststatus=2
-
-" Python Syntax/Highlighting
-Plug 'scrooloose/syntastic'
 
 " Python Syntax/Style checker
 " pip install flake8
