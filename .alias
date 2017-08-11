@@ -31,7 +31,11 @@ if  [ -x "$(command -v gpustat)" ]; then
     alias watchgpu='watch --color -n0.2 gpustat'
 fi
 
-# cenv
+# conda environment
 if [ -x "$(command -v conda)" ]; then
+    # Create a conda env with data science packages
     alias cenv='conda create --file ~/.make/conda-data-science-requirements.txt -n'
+
+    alias sa='source activate'
+    alias sd='source deactivate'
 fi
