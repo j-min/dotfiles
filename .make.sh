@@ -11,3 +11,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # antigen
 curl -fLo ~/.zsh/antigen.zsh --create-dirs \
     https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh
+
+# tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
