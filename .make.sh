@@ -1,13 +1,13 @@
 
 # Vim
 # Monokai color scheme
-mkdir -p ~/.vim/colors
-wget https://raw.githubusercontent.com/crusoexia/vim-monokai/master/colors/monokai.vim -P ~/.vim/colors
+curl -fLo ~/.vim/colors --create-dirs \
+    https://raw.githubusercontent.com/crusoexia/vim-monokai/master/colors/monokai.vim
 
 # vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # antigen
-mkdir -p ~/.zsh
-curl -qL https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > ~/.zsh/antigen.zsh
+curl -fLo ~/.zsh/antigen.zsh --create-dirs \
+    https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh

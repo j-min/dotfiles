@@ -28,7 +28,7 @@ antigen bundle robbyrussell/oh-my-zsh lib/
 # antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
 
 # POWER LEVEL 9k
-# POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k/powerlevel9k.zsh-theme
+POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k/powerlevel9k.zsh-theme
 antigen theme https://github.com/bhilburn/powerlevel9k powerlevel9k
 # POWERLEVEL9K_MODE='awesome-patched'
 

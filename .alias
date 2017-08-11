@@ -1,6 +1,8 @@
 
 # Replacement for 'find'
-unalias fd
+if  [ -x "$(command -v fd)" ]; then
+    unalias fd
+fi
 
 # Replacement for 'ls'
 if  [ -x "$(command -v exa)" ]; then
