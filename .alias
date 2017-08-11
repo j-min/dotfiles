@@ -27,6 +27,6 @@ fi
 alias python2=python2.7
 
 # gpustat
-if  [ -x "$(command -v exa)" ]; then
-    alias watchgpu=watch --color -n0.2 gpustat
+if  [ -x "$(command -v gpustat)" ]; then
+    alias 'watchgpu=watch --color -n0.2 gpustat'
 fi
