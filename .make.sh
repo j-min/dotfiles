@@ -1,7 +1,7 @@
 
 # Vim
 # Monokai color scheme
-curl -fLo ~/.vim/colors --create-dirs \
+curl -fLo ~/.vim/colors/monokai.vim --create-dirs \
     https://raw.githubusercontent.com/crusoexia/vim-monokai/master/colors/monokai.vim
 
 # vim-plug
