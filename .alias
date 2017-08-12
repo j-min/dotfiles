@@ -36,6 +36,6 @@ if [ -x "$(command -v conda)" ]; then
     # Create a conda env with data science packages
     alias cenv='conda create --file ~/.make/conda-data-science-requirements.txt -n'
 
-    alias sa='source activate'
-    alias sd='source deactivate'
+    alias workon='source activate'
+    alias deactivate='source deactivate'
 fi
