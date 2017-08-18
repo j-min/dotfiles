@@ -27,7 +27,7 @@ set clipboard=unnamed
 call plug#begin('~/.vim/plugged')
 
 " File Browsing (Nerd Tree)
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 let NERDTreeWinPos = "left"
 let mapleader = "," " remaps leader key to ','
 noremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
@@ -81,6 +81,8 @@ Plug 'scrooloose/nerdcommenter', {'for': 'python'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'crusoexia/vim-javascript-lib', {'for': 'javascript'}
 
+" Initialize plugin system
+call plug#end()
 
 
 " All of your Plugins must be added before the following line
