@@ -25,4 +25,5 @@ elif [ $(uname -s) == Linux ]; then
 fi
 bash /tmp/anaconda3.sh
 
+source ~/.bashrc
 conda config --add channels conda-forge
