@@ -5,3 +5,7 @@ function taocl() {
           xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
           xmlstarlet unesc | fmt -80
 		  }
+function usegpu {
+	export CUDA_DEVICES_ORDER=PCI_BUS_ID
+	export CUDA_VISIBLE_DEVICES=$1
+}
