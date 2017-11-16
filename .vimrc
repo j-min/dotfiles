@@ -37,6 +37,7 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 nnoremap <C-F> :NERDTreeFind<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " Searching with Ctrl-P
 Plug 'kien/ctrlp.vim'
