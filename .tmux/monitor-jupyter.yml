@@ -1,0 +1,18 @@
+# ~/.tmux/monitor-jupyter.yml
+
+name: monitor-jupyter
+root: ~/
+
+windows:
+  - monitor:
+      layout: main-vertical
+      panes:
+        - htop -d 5
+        - watch nvidia-smi
+        - watchgpu
+  - jupyter:
+      layout: even-vertical
+      root: ~/workspace
+      panes:
+        - workon mldemo; jupyter lab
+        - workon mldemo; spyder
