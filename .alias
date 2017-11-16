@@ -7,6 +7,7 @@ alias python2=python2.7
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Tmux
+alias mux=tmuxinator
 alias tm='tmuxinator start monitor-jupyter'
 alias tmk='tmux kill-session'
 
