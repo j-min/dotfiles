@@ -6,6 +6,13 @@ alias python2=python2.7
 # Prior to the installation make sure you have committed the alias to your .bashrc or .zsh:
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# Safe reattach-to-user-namespace
+if [ -n "$(command -v reattach-to-user-namespace)" ]; then
+	reattach-to-user-namespace $@
+else
+	exec "$@"
+fi
+
 # Tmux
 alias mux=tmuxinator
 alias tm='tmuxinator start monitor-jupyter'
