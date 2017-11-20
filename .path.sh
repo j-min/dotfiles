@@ -11,6 +11,7 @@ fi
 # tmux
 export TMUXINATOR_CONFIG=$HOME/.tmux
 ln -sf $HOME/.tmux/tmux.conf $HOME/.tmux.conf
+ln -sf $HOME/.tmux/tmux-osx.conf $HOME/.tmux-osx.conf
 
 # CUDA 8.0
 export PATH=/usr/local/cuda-8.0/bin:$PATH
