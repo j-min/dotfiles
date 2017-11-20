@@ -10,7 +10,7 @@ export LANG=en_US.UTF-8
 export EDITOR='vim'
 
 # import environment path
-source $HOME/.path
+source $HOME/.path.sh
 
 #####################
 ## Antigen configs ##
@@ -72,7 +72,7 @@ antigen apply
 #############################
 
 # Alias Control
-source $HOME/.alias
+source $HOME/.alias.sh
 
 # Custom Functions
-source $HOME/.functions
+source $HOME/.functions.sh
