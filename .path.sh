@@ -8,6 +8,9 @@ if [[ -d "$HOME/anaconda3/bin" ]]; then
 	export PATH=$HOME/anaconda3/bin:$PATH
 fi
 
+# gem
+export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
+
 # tmux
 export TMUXINATOR_CONFIG=$HOME/.tmux
 ln -sf $HOME/.tmux/tmux.conf $HOME/.tmux.conf

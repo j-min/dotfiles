@@ -4,7 +4,7 @@ alias python2=python2.7
 
 # Replacement for 'git' for dotfile congiration
 # Prior to the installation make sure you have committed the alias to your .bashrc or .zsh:
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Safe reattach-to-user-namespace
 if [ -n "$(command -v reattach-to-user-namespace)" ]; then
