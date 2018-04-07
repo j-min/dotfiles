@@ -19,7 +19,7 @@ curl -fLo ~/.zsh/antigen.zsh --create-dirs \
 ################# Tmux #################
 
 # tmuxinator
-gem install tmuxinator
+gem install --user-install tmuxinator
 
 # tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
