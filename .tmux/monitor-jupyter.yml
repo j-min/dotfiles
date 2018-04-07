@@ -9,8 +9,7 @@ windows:
       root: ~/workspace
       panes:
         - htop -d 5
-        - workon mldemo; jupyter lab
-        - workon mldemo; spyder
+        - workon mldemo; jupyter lab --ip='*'
         - watchgpu
         - watch -n 1 nvidia-smi
 #  - jupyter:
