@@ -25,14 +25,16 @@ gem install --user-install tmuxinator
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ################# Anaconda 3 #################
-
+VERSION='5.1.0'
 if [ $(uname -s) == Darwin ]; then
-    curl -fLo /tmp/anaconda3.sh https://repo.continuum.io/archive/Anaconda3-5.1.0-MacOSX-x86_64.sh
+    curl -fLo /tmp/anaconda3.sh https://repo.continuum.io/archive/Anaconda3-$VERSION-MacOSX-x86_64.sh
 elif [ $(uname -s) == Linux ]; then
-    curl -fLo /tmp/anaconda3.sh https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh
+    curl -fLo /tmp/anaconda3.sh https://repo.continuum.io/archive/Anaconda3-$VERSION-Linux-x86_64.sh
 fi
 bash /tmp/anaconda3.sh
 
-# conda-forge
+# Add Anaconda to PATH
 export PATH=$HOME/anaconda3/bin:$PATH
+
+# Add conda-forge channel
 conda config --add channels conda-forge
