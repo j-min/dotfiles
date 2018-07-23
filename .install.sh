@@ -25,7 +25,7 @@ gem install --user-install tmuxinator
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ################# Anaconda 3 #################
-VERSION='5.1.0'
+VERSION='5.2.0'
 if [ $(uname -s) == Darwin ]; then
     curl -fLo /tmp/anaconda3.sh https://repo.continuum.io/archive/Anaconda3-$VERSION-MacOSX-x86_64.sh
 elif [ $(uname -s) == Linux ]; then
