@@ -6,7 +6,7 @@ c = get_config()
 c.NotebookApp.open_browser = False
 
 # Open to all IP
-c.NotebookApp.ip = '*'
+c.NotebookApp.ip = '0.0.0.0'
 
 # c.NotebookApp.port = 8888
 
