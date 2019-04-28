@@ -1,5 +1,5 @@
 
-EDITOR=vi
+EDITOR=vim
 SHELL=zsh
 
 # Python 2

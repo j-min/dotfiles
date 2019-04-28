@@ -8,7 +8,7 @@ curl -fLo ~/.zsh/antigen.zsh --create-dirs \
 ################# Anaconda 3 #################
 VERSION='2019.03'
 if [ $(uname -s) == Darwin ]; then
-    curl -fLo /tmp/anaconda3.sh https://repo.anaconda.com/archive/Anaconda3-$VERSION-MacOSX-x86_64.sh	
+    curl -fLo /tmp/anaconda3.sh https://repo.anaconda.com/archive/Anaconda3-$VERSION-MacOSX-x86_64.sh
 elif [ $(uname -s) == Linux ]; then
     curl -fLo /tmp/anaconda3.sh https://repo.anaconda.com/archive/Anaconda3-$VERSION-Linux-x86_64.sh
 fi
@@ -63,7 +63,10 @@ rbenb global $VERSION
 
 ################# Tmux #################
 if [ $(uname -s) == Darwin ]; then
-    brew install tmux
+    # tmux 2.8.1 for tmuxinator compatibility
+    SHA=b3bd700d9fc53fa153c884b0ea613822de1f375c
+    brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/$SHA/Formula/tmux.rb
+    # brew install tmux <= tmux 2.9
 elif [ $(uname -s) == Linux ]; then
     sudo apt-get install tmux
 fi
