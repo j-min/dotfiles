@@ -7,11 +7,13 @@ elif [[ -d "$HOME/anaconda3/bin" ]]; then
 fi
 
 # Ruby
-if [ $(uname -s) == Linux ]; then
-	export PATH="$HOME/.rbenv/bin:$PATH"
-	export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+if [[ $(uname -s) == Linux ]]; then
+	export PATH=$HOME/.rbenv/bin:$PATH
+	export PATH=$HOME/.rbenv/plugins/ruby-build/bin:$PATH
 	eval "$(rbenv init -)"
 	# export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
+fi
+
 
 # tmux
 export TMUXINATOR_CONFIG=$HOME/.tmux
@@ -21,4 +23,3 @@ ln -sf $HOME/.tmux/tmux-osx.conf $HOME/.tmux-osx.conf
 # CUDA
 export PATH=/usr/local/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-
