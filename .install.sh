@@ -26,13 +26,9 @@ export PATH=$HOME/anaconda3/bin:$PATH
 if [ $(uname -s) == Darwin ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew update
+    brew bundle --file=$HOME/.Brewfile
 fi
 
-
-################# MacVim (OsX only) #################
-if [ $(uname -s) == Darwin ]; then
-    brew cask install macvim
-fi
 
 
 ################# Vim #################
@@ -76,8 +72,3 @@ gem install --user-install tmuxinator
 
 # tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-################# Misc. #################
-if [ $(uname -s) == Darwin ]; then
-    brew install htop
-fi
