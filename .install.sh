@@ -44,3 +44,9 @@ export PATH=$HOME/anaconda3/bin:$PATH
 if [ $(uname -s) == Darwin ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
+
+################# MacVim (OsX only) #################
+if [ $(uname -s) == Darwin ]; then
+    brew install macvim --with-override-system-vim
+    brew linkapps
+fi
