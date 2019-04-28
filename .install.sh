@@ -76,3 +76,8 @@ gem install --user-install tmuxinator
 
 # tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+################# Misc. #################
+if [ $(uname -s) == Darwin ]; then
+    brew install htop
+fi
