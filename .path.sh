@@ -6,8 +6,12 @@ elif [[ -d "$HOME/anaconda3/bin" ]]; then
 	export PATH=$HOME/anaconda3/bin:$PATH
 fi
 
-# gem
-export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
+# Ruby
+if [ $(uname -s) == Linux ]; then
+	export PATH="$HOME/.rbenv/bin:$PATH"
+	export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+	eval "$(rbenv init -)"
+	# export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
 
 # tmux
 export TMUXINATOR_CONFIG=$HOME/.tmux
