@@ -1,10 +1,8 @@
 
-# Anaconda as main default Python
+# Deafault Python: Anaconda
 if [[ -d "$HOME/anaconda/bin" ]]; then
 	export PATH=$HOME/anaconda/bin:$PATH
-fi
-
-if [[ -d "$HOME/anaconda3/bin" ]]; then
+elif [[ -d "$HOME/anaconda3/bin" ]]; then
 	export PATH=$HOME/anaconda3/bin:$PATH
 fi
 
