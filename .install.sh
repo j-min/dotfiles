@@ -31,7 +31,7 @@ fi
 
 ################# MacVim (OsX only) #################
 if [ $(uname -s) == Darwin ]; then
-    brew install macvim
+    brew cask install macvim
 fi
 
 
