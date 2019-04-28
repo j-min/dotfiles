@@ -10,12 +10,13 @@ windows:
       panes:
         - htop -d 5
         - workon mldemo; jupyter lab
-        - workon mldemo; spyder
-        - watchgpu
-        - watch -n 1 nvidia-smi
-#  - jupyter:
-#      layout: even-vertical
-#      root: ~/workspace
-#      panes:
-#        - workon mldemo; jupyter lab
-#        - workon mldemo; spyder
+        - workon mldemo; python -m visdom.server
+        - if [ -x "$(command -v nvidia-smi)" ]; then watchgpu; fi
+          # - workon mldemo; spyder
+          # - watch -n 1 nvidia-smi
+  - workspace:
+      layout: even-vertical
+      root: ~/workspace
+      panes:
+        - 
+        - 

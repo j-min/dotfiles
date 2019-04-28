@@ -76,3 +76,5 @@ source $HOME/.alias.sh
 
 # Custom Functions
 source $HOME/.functions.sh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
