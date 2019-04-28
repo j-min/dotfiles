@@ -1,15 +1,4 @@
 
-################# Vim #################
-# Monokai color scheme
-curl -fLo ~/.vim/colors/monokai.vim --create-dirs \
-    https://raw.githubusercontent.com/crusoexia/vim-monokai/master/colors/monokai.vim
-
-# vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +PlugInstall +qall
-
-
 ################# Zsh #################
 # antigen
 curl -fLo ~/.zsh/antigen.zsh --create-dirs \
@@ -44,6 +33,17 @@ fi
 if [ $(uname -s) == Darwin ]; then
     brew install macvim
 fi
+
+
+################# Vim #################
+# Monokai color scheme
+curl -fLo ~/.vim/colors/monokai.vim --create-dirs \
+    https://raw.githubusercontent.com/crusoexia/vim-monokai/master/colors/monokai.vim
+
+# vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim +PlugInstall +qall
 
 
 ################# Ruby #################
