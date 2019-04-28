@@ -27,9 +27,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ################# Anaconda 3 #################
 VERSION='2019.03'
 if [ $(uname -s) == Darwin ]; then
-    curl -fLo /tmp/anaconda3.sh Anaconda3-$VERSION-MacOSX-x86_64.sh	
+    curl -fLo /tmp/anaconda3.sh https://repo.anaconda.com/archive/Anaconda3-$VERSION-MacOSX-x86_64.sh	
 elif [ $(uname -s) == Linux ]; then
-    curl -fLo /tmp/anaconda3.sh Anaconda3-$VERSION-Linux-x86_64.sh
+    curl -fLo /tmp/anaconda3.sh https://repo.anaconda.com/archive/Anaconda3-$VERSION-Linux-x86_64.sh
 fi
 bash /tmp/anaconda3.sh
 
