@@ -51,6 +51,7 @@ antigen bundle tmuxinator
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle web-search
+antigen bundle greymd/tmux-xpanes
 # antigen bundle chucknorris
 
 # For SSH, starting ssh-agent is annoying

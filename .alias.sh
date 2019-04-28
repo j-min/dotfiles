@@ -1,10 +1,13 @@
 
+EDITOR=vim
+SHELL=zsh
+
 # Python 2
 alias python2=python2.7
 
 # Replacement for 'git' for dotfile congiration
 # Prior to the installation make sure you have committed the alias to your .bashrc or .zsh:
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Tmux
 alias mux=tmuxinator
