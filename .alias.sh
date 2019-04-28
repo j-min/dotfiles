@@ -1,4 +1,7 @@
 
+EDITOR=vi
+SHELL=zsh
+
 # Python 2
 alias python2=python2.7
 
