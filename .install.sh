@@ -16,7 +16,7 @@ fi
 bash /tmp/anaconda3.sh
 
 # Add Anaconda to PATH
-export PATH=c/anaconda3/bin:$PATH
+export PATH=$HOME/anaconda3/bin:$PATH
 
 # Add conda-forge channel
 # conda config --add channels conda-forge
