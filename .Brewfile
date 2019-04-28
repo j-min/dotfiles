@@ -19,6 +19,8 @@ brew "go"
 brew "wget"
 brew "zlib"
 brew "gdrive"
+brew "chrome-cli"
+brew "hugo"
 # brew "tmux"
 
 cask "spectacle"
