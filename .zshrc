@@ -12,13 +12,17 @@ export EDITOR='vim'
 # import environment path
 source $HOME/.path.sh
 
+# Activate base anaconda envrionment
+source activate base
+
 #####################
 ## Antigen configs ##
 #####################
 
 # Load Antigen
 source $ZSH/antigen.zsh
-
+#ANTIGEN_PATH=~/.dotfiles
+#source $ANTIGEN_PATH/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
@@ -79,3 +83,4 @@ source $HOME/.alias.sh
 source $HOME/.functions.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

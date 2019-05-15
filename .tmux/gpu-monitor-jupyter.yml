@@ -1,7 +1,8 @@
-# ~/.tmux/monitor-jupyter.yml
+# ~/.tmux/gpu-monitor-jupyter.yml
 
 name: gpu-monitor-jupyter
 root: ~/
+tmux_options: -f ~/.tmux/tmux.conf
 
 windows:
   - monitor:
@@ -12,10 +13,10 @@ windows:
         - watch -n 1 nvidia-smi
         - watchgpu
         - workon mldemo; jupyter lab --ip='*'
-        - 
-#  - jupyter:
-#      layout: even-vertical
-#      root: ~/workspace
-#      panes:
-#        - workon mldemo; jupyter lab
-#        - workon mldemo; spyder
+        -
+  - workspace:
+      layout: even-vertical
+      root: ~/workspace
+      panes:
+        -
+

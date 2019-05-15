@@ -2,6 +2,7 @@
 
 name: monitor-jupyter
 root: ~/
+tmux_options: -f ~/.tmux/tmux.conf
 
 windows:
   - monitor:
@@ -9,25 +10,10 @@ windows:
       root: ~/workspace
       panes:
         - htop -d 5
-<<<<<<< HEAD
         - workon mldemo; jupyter lab
-        - workon mldemo; python -m visdom.server
-        - if [ -x "$(command -v nvidia-smi)" ]; then watchgpu; fi
-          # - workon mldemo; spyder
-          # - watch -n 1 nvidia-smi
+        - 
   - workspace:
       layout: even-vertical
       root: ~/workspace
       panes:
-        - 
-        - 
-=======
-        - workon mldemo; jupyter lab --ip='*'
         -
-#  - jupyter:
-#      layout: even-vertical
-#      root: ~/workspace
-#      panes:
-#        - workon mldemo; jupyter lab
-#        - workon mldemo; spyder
->>>>>>> 012726c0983f0cae569a0bb1ce3028e446976ba4

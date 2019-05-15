@@ -6,11 +6,11 @@ curl -fLo ~/.zsh/antigen.zsh --create-dirs \
 
 
 ################# Anaconda 3 #################
-VERSION='2019.03'
-if [ $(uname -s) == Darwin ]; then
-    curl -fLo /tmp/anaconda3.sh https://repo.anaconda.com/archive/Anaconda3-$VERSION-MacOSX-x86_64.sh
-elif [ $(uname -s) == Linux ]; then
-    curl -fLo /tmp/anaconda3.sh https://repo.anaconda.com/archive/Anaconda3-$VERSION-Linux-x86_64.sh
+ANACONDA_VERSION='2019.03'
+if [[ $(uname -s) == Darwin ]]; then
+    curl -fLo /tmp/anaconda3.sh https://repo.anaconda.com/archive/Anaconda3-$ANACONDA_VERSION-MacOSX-x86_64.sh
+elif [[ $(uname -s) == Linux ]]; then
+    curl -fLo /tmp/anaconda3.sh https://repo.anaconda.com/archive/Anaconda3-$ANACONDA_VERSION-Linux-x86_64.sh
 fi
 
 bash /tmp/anaconda3.sh
@@ -21,6 +21,8 @@ export PATH=$HOME/anaconda3/bin:$PATH
 # Add conda-forge channel
 # conda config --add channels conda-forge
 
+# Conda shel initilization init
+conda init zsh
 
 ################# Homebrew (OsX only) #################
 if [ $(uname -s) == Darwin ]; then
@@ -52,16 +54,16 @@ elif [ $(uname -s) == Linux ]; then
 fi
 source $HOME/.path.sh
 
-VERSION='2.6.3'
-rbenv install $VERSION
-rbenb global $VERSION
+RUBY_VERSION='2.6.3'
+rbenv install $RUBY_VERSION
+rbenb global $RUBY_VERSION
 
 
 ################# Tmux #################
 if [ $(uname -s) == Darwin ]; then
     # tmux 2.8.1 for tmuxinator compatibility
-    SHA=b3bd700d9fc53fa153c884b0ea613822de1f375c
-    brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/$SHA/Formula/tmux.rb
+    TMUX_SHA=b3bd700d9fc53fa153c884b0ea613822de1f375c
+    brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/$TMUX_SHA/Formula/tmux.rb
     # brew install tmux <= tmux 2.9
 elif [ $(uname -s) == Linux ]; then
     sudo apt-get install tmux

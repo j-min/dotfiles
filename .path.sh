@@ -14,9 +14,11 @@ PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
 # tmux
 export TMUXINATOR_CONFIG=$HOME/.tmux
-ln -sf $HOME/.tmux/tmux.conf $HOME/.tmux.conf
-ln -sf $HOME/.tmux/tmux-osx.conf $HOME/.tmux-osx.conf
+#ln -sf $HOME/.tmux/tmux.conf $HOME/.tmux.conf
+#ln -sf $HOME/.tmux/tmux-osx.conf $HOME/.tmux-osx.conf
 
 # CUDA
-export PATH=/usr/local/cuda/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+#if exists_cuda; then
+#    export PATH=/usr/local/cuda/bin:$PATH
+#    export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+#fi
