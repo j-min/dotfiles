@@ -11,7 +11,11 @@ alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Tmux
 alias mux=tmuxinator
-alias tm='tmuxinator start monitor-jupyter'
+if [[ $(uname -s) == Linux ]]; then
+    alias tm='tmuxinator start gpu-monitor-jupyter'
+elif [[ $(uname -s) == Darwin ]]; then
+    alias tm='tmuxinator start monitor-jupyter'
+fi
 alias tmk='tmux kill-session'
 
 # Replacement for 'find'
