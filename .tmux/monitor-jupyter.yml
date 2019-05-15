@@ -1,0 +1,21 @@
+# ~/.tmux/monitor-jupyter.yml
+
+name: monitor-jupyter
+root: ~/
+
+windows:
+  - monitor:
+      layout: cadc,262x73,0,0[263x48,0,0{149x48,0,0,0,113x48,150,0[113x17,150,0,1,113x17,150,18,6,113x12,150,36,5]},263x25,0,49,4]
+      root: ~/workspace
+      panes:
+        - htop -d 5
+        - workon mldemo; jupyter lab --ip='*'
+        - dropbox start; exit
+        - watchgpu
+        - watch -n 1 nvidia-smi
+#  - jupyter:
+#      layout: even-vertical
+#      root: ~/workspace
+#      panes:
+#        - workon mldemo; jupyter lab
+#        - workon mldemo; spyder

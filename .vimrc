@@ -23,21 +23,36 @@ set shiftwidth=4
 " Sync Clipboard
 set clipboard=unnamed
 
+" Leader key: , (comma)
+let mapleader = ","
+
 " Directory for plugins
 call plug#begin('~/.vim/plugged')
 
-" File Browsing (Nerd Tree)
+" File Browsing (NerdTree)
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 let NERDTreeWinPos = "left"
-let mapleader = "," " remaps leader key to ','
+
+" leader + rc: open vimrc at new pane at right
 noremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
+
+" Navigate across panes: Ctrl-hjkl
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+
+" Find current file in tree
 nnoremap <C-F> :NERDTreeFind<CR>
+
+" Open Tree
 nnoremap <Leader>n :NERDTreeToggle<CR>
+
+" NerdTree shows hidden files (dotfies)
 let NERDTreeShowHidden=1
+
+" Window swap: Navigate pane + leader-ww
+Plug 'wesQ3/vim-windowswap'
 
 " Searching with Ctrl-P
 Plug 'kien/ctrlp.vim'
@@ -49,6 +64,7 @@ Plug 'scrooloose/syntastic'
 Plug 'rizzatti/dash.vim'
 nmap <silent> <leader>c <Plug>DashGlobalSearch
 nmap <silent> <leader>v <Plug>DashSearch
+
 
 """"""""""""""""""""""""""""""""""" 
 "             Python              "
