@@ -60,6 +60,21 @@ au FileType python map <F2> : !python %:p
 " Save and Run Python script by <F9>
 nnoremap <silent> <F9> :!clear;python %:p<CR>
 
+" autocompletion with deocomplete
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'zchee/deoplete-jedi'
+let g:deoplete#enable_at_startup = 1
+
+" go-to-definition / refactor
+Plug 'davidhalter/jedi-vim'
+let g:jedi#usages_command = "<leader>m"
+
 " Powerline
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 let g:Powerline_symbols = 'fancy'
