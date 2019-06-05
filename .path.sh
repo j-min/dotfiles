@@ -16,6 +16,9 @@ PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 # npm config set prefix '~/.npm-global'
 export PATH=~/.npm-global/bin:$PATH
 
+# cargo
+export PATH=$HOME/.cargo/bin:$PATH
+
 # tmux
 export TMUXINATOR_CONFIG=$HOME/.tmux
 #ln -sf $HOME/.tmux/tmux.conf $HOME/.tmux.conf
@@ -27,6 +30,7 @@ if [[ $(uname -s) == Linux ]]; then
     export CUDA_HOME=/usr/local/cuda-10.0
     export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH
 fi
+
 
 # The next line updates PATH for the Google Cloud SDK.
 #if [ -f '/home/j-min/google-cloud-sdk/path.zsh.inc' ]; then source '/home/j-min/google-cloud-sdk/path.zsh.inc'; fi
