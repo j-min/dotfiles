@@ -21,11 +21,14 @@ alias tmk='tmux kill-session'
 # Replacement for 'find'
 unalias fd
 
-# Replacement for 'ls'
-if  [ -x "$(command -v exa)" ]; then
-    alias ls=exa
-    alias la='ls -la'
-fi
+## Replacement for 'ls'
+#if  [ -x "$(command -v exa)" ]; then
+    #alias ls=exa
+    #alias la='ls -la'
+#fi
+alias ls=lsd
+alias la='ls -a'
+alias lla='ls -la'
 
 # MacOS
 if [[ `uname` == 'Darwin' ]]; then
