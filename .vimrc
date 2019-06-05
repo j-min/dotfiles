@@ -51,6 +51,9 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 " NerdTree shows hidden files (dotfies)
 let NERDTreeShowHidden=1
 
+" commenter
+Plug 'scrooloose/nerdcommenter'
+
 " Window swap: Navigate pane + leader-ww
 Plug 'wesQ3/vim-windowswap'
 
@@ -103,8 +106,6 @@ Plug 'nvie/vim-flake8', {'for': 'python'} " <F7>
 " Python Auto-indent
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 
-" Python commenter
-Plug 'scrooloose/nerdcommenter', {'for': 'python'}
 
 """"""""""""""""""""""""""""""""""" 
 "           JavaScript            "
