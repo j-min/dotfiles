@@ -56,7 +56,7 @@ source $HOME/.path.sh
 
 RUBY_VERSION='2.6.3'
 rbenv install $RUBY_VERSION
-rbenb global $RUBY_VERSION
+rbenv global $RUBY_VERSION
 
 
 ################# Tmux #################
