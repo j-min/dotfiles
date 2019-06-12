@@ -12,7 +12,7 @@ windows:
         - htop -d 5
         - watch -n 1 nvidia-smi
         - watchgpu
-        - workon mldemo; jupyter lab --ip='*'
+        - jupyter lab --ip='0.0.0.0'
         - dropbox start; exit
   - workspace:
       layout: even-vertical
