@@ -19,7 +19,7 @@ fi
 alias tmk='tmux kill-session'
 
 # Replacement for 'find'
-unalias fd
+#unalias fd
 
 ## Replacement for 'ls'
 #if  [ -x "$(command -v exa)" ]; then
@@ -47,6 +47,9 @@ fi
 
 # gpustat
 alias watchgpu='watch --color -n0.2 gpustat'
+
+# nvidia-docker
+alias docker=nvidia-docker
 
 # Conda environment
 # Create a conda env with data science packages

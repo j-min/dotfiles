@@ -13,7 +13,7 @@ windows:
         - watch -n 1 nvidia-smi
         - watchgpu
         - workon mldemo; jupyter lab --ip='*'
-        -
+        - dropbox start; exit
   - workspace:
       layout: even-vertical
       root: ~/workspace
