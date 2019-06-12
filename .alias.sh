@@ -1,6 +1,8 @@
 
-EDITOR=vim
-SHELL=zsh
+alias vi=nvim
+alias vim=nvim
+alias oldvi='\vi'
+alias oldvim='\vim'
 
 # Python 2
 alias python2=python2.7

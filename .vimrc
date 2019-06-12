@@ -2,14 +2,12 @@ set nocompatible
 
 set mouse=a
 
-syntax enable
-
-" Monokai color scheme
-colorscheme monokai
-
 " utf-8/cp949 support
 set encoding=utf-8
 set fileencodings=utf-8,cp949
+
+" Activate syntax highlighting
+syntax on
 
 " Line numbering
 set nu 
@@ -26,8 +24,11 @@ set clipboard=unnamed
 " Leader key: , (comma)
 let mapleader = ","
 
-" Directory for plugins
+" Directory for plugins (Vim-Plug)
 call plug#begin('~/.vim/plugged')
+
+" Color scheme
+Plug 'rakr/vim-one'
 
 " File Browsing (NerdTree)
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -68,6 +69,8 @@ Plug 'rizzatti/dash.vim'
 nmap <silent> <leader>c <Plug>DashGlobalSearch
 nmap <silent> <leader>v <Plug>DashSearch
 
+" Polyglot: language packs
+Plug 'sheerun/vim-polyglot'
 
 """"""""""""""""""""""""""""""""""" 
 "             Python              "
@@ -95,9 +98,14 @@ Plug 'davidhalter/jedi-vim'
 let g:jedi#usages_command = "<leader>m"
 
 " Powerline
-Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-let g:Powerline_symbols = 'fancy'
-set laststatus=2
+" Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" let g:Powerline_symbols = 'fancy'
+" set laststatus=2
+
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 
 " Python Syntax/Style checker
 " pip install flake8
@@ -117,6 +125,16 @@ Plug 'crusoexia/vim-javascript-lib', {'for': 'javascript'}
 " Initialize plugin system
 call plug#end()
 
+" Neovim-Truecaolor support in Tmux
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" Colorscheme
+colorscheme one
+set background=dark " for the dark version
+" set background=light " for the light version
+let g:airline_theme='one'
 
 " All of your Plugins must be added before the following line
 filetype plugin indent on    " required
