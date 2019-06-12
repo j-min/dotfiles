@@ -24,14 +24,15 @@ export PATH=$HOME/anaconda3/bin:$PATH
 # Conda shel initilization init
 conda init zsh
 
+# Ranger
+pip install ranger-fm
+
 ################# Homebrew (OsX only) #################
 if [ $(uname -s) == Darwin ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew update
     brew bundle --file=$HOME/.Brewfile
 fi
-
-
 
 ################# Vim #################
 # vim-plug
@@ -43,6 +44,7 @@ vim +PlugInstall +qall
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +qall
+pip install pynvim
 
 ################# Ruby #################
 if [ $(uname -s) == Darwin ]; then
