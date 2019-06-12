@@ -32,9 +32,9 @@ export TMUXINATOR_CONFIG=$HOME/.tmux
 
 # CUDA 10.0
 if [[ $(uname -s) == Linux ]]; then
-    export PATH=/usr/local/cuda-10.0/bin:$PATH
-    export CUDA_HOME=/usr/local/cuda-10.0
-    export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH
+    export PATH=/usr/local/cuda/bin:$PATH
+    export CUDA_HOME=/usr/local/cuda
+    export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 fi
 
 
