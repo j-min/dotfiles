@@ -2,6 +2,8 @@
 # User defined binaries
 export PATH=$HOME/bin:$PATH
 
+export PATH=/usr/local/sbin:$PATH
+
 # neovim
 ln -sf ~/.vimrc ~/.config/nvim/init.vim
 
@@ -27,7 +29,7 @@ export PATH=$HOME/.cargo/bin:$PATH
 
 # tmux
 export TMUXINATOR_CONFIG=$HOME/.tmux
-#ln -sf $HOME/.tmux/tmux.conf $HOME/.tmux.conf
+ln -sf $HOME/.tmux/tmux.conf $HOME/.tmux.conf
 #ln -sf $HOME/.tmux/tmux-osx.conf $HOME/.tmux-osx.conf
 
 # CUDA 10.0
