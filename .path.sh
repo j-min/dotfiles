@@ -2,6 +2,9 @@
 # User defined binaries
 export PATH=$HOME/bin:$PATH
 
+export PATH=/usr/local/sbin:$PATH
+
+
 # Default Python: Anaconda
 if [[ -d "$HOME/anaconda/bin" ]]; then
 	export PATH=$HOME/anaconda/bin:$PATH
@@ -24,10 +27,10 @@ export PATH=$HOME/.cargo/bin:$PATH
 
 # tmux
 export TMUXINATOR_CONFIG=$HOME/.tmux
-#ln -sf $HOME/.tmux/tmux.conf $HOME/.tmux.conf
+ln -sf $HOME/.tmux/tmux.conf $HOME/.tmux.conf
 #ln -sf $HOME/.tmux/tmux-osx.conf $HOME/.tmux-osx.conf
 
-# CUDA 10.0
+# CUDA
 if [[ $(uname -s) == Linux ]]; then
     export PATH=/usr/local/cuda/bin:$PATH
     export CUDA_HOME=/usr/local/cuda
