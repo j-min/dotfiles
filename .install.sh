@@ -44,7 +44,11 @@ vim +PlugInstall +qall
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +qall
+mkdir -p ~/.config/nvim
 pip install pynvim
+
+# neovim config = vim config
+ln -sf ~/.vimrc ~/.config/nvim/init.vim
 
 ################# Ruby #################
 if [ $(uname -s) == Darwin ]; then
