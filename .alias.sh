@@ -34,10 +34,6 @@ alias lla='ls -la'
 
 # MacOS
 if [[ `uname` == 'Darwin' ]]; then
-    # MacVim
-	alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-	alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
-
     # Macdown
     alias mdn=macdown
     
