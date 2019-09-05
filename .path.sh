@@ -2,9 +2,6 @@
 # User defined binaries
 export PATH=$HOME/bin:$PATH
 
-# neovim
-ln -sf ~/.vimrc ~/.config/nvim/init.vim
-
 # Default Python: Anaconda
 if [[ -d "$HOME/anaconda/bin" ]]; then
 	export PATH=$HOME/anaconda/bin:$PATH
