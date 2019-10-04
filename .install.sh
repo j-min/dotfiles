@@ -6,7 +6,7 @@ curl -fLo ~/.zsh/antigen.zsh --create-dirs \
 
 
 ################# Anaconda 3 #################
-ANACONDA_VERSION='2019.03'
+ANACONDA_VERSION='2019.07'
 if [[ $(uname -s) == Darwin ]]; then
     curl -fLo /tmp/anaconda3.sh https://repo.anaconda.com/archive/Anaconda3-$ANACONDA_VERSION-MacOSX-x86_64.sh
 elif [[ $(uname -s) == Linux ]]; then
