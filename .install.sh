@@ -84,7 +84,7 @@ gem install --user-install tmuxinator
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # lsd
-if [ $(uname -s ) == Linux]; then
+if [ $(uname -s) == Linux ]; then
     LSD_VERSION='0.16.0'
     wget https://github.com/Peltoche/lsd/releases/download/$LSD_VERSION/lsd_$LSD_VERSION_amd64.deb
     sudo dpkg -i lsd_$LSD_VERSION_amd64.deb
