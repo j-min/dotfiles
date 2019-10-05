@@ -41,11 +41,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 vim +PlugInstall +qall
 
 # neovim
-curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-chmod u+x nvim.appimage
-mv ./nvim.appimage nvim
-sudo mv nvim /usr/local/bin
-
+if [ $(uname -s) == Linux ]; then
+    curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+    chmod u+x nvim.appimage
+    mv ./nvim.appimage nvim
+    sudo mv nvim /usr/local/bin
+fi
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
