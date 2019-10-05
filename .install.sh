@@ -73,12 +73,7 @@ rbenv global $RUBY_VERSION
 
 
 ################# Tmux #################
-if [ $(uname -s) == Darwin ]; then
-    # tmux 2.8.1 for tmuxinator compatibility
-    TMUX_SHA=b3bd700d9fc53fa153c884b0ea613822de1f375c
-    brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/$TMUX_SHA/Formula/tmux.rb
-    # brew install tmux <= tmux 2.9
-elif [ $(uname -s) == Linux ]; then
+if [ $(uname -s) == Linux ]; then
     sudo apt-get install tmux
 fi
 
