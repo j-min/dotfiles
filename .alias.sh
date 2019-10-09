@@ -43,14 +43,29 @@ if [[ `uname` == 'Darwin' ]]; then
     fi
 fi
 
-# gpustat
-alias watchgpu='watch --color -n0.2 gpustat'
-
-# nvidia-docker
-alias docker=nvidia-docker
-
 # Conda environment
 # Create a conda env with data science packages
 # alias cenv='conda create --file ~/.make/conda-data-science-requirements.txt -n'
 alias workon='conda activate'
 alias deactivate='conda deactivate'
+
+# NVIDIA GPU
+if [[ $(uname -s) == Linux ]]; then
+
+    # gpustat
+    alias watchgpu='watch --color -n0.2 gpustat'
+
+    # nvidia-docker
+    alias docker=nvidia-docker
+
+    # CUDA VISIBLE DEVICES
+    alias gpuX="export CUDA_VISIBLE_DEVICES=''"
+    alias gpu0="export CUDA_VISIBLE_DEVICES='0'"
+    alias gpu1="export CUDA_VISIBLE_DEVICES='1'"
+    alias gpu2="export CUDA_VISIBLE_DEVICES='2'"
+    alias gpu3="export CUDA_VISIBLE_DEVICES='3'"
+    alias gpu4="export CUDA_VISIBLE_DEVICES='4'"
+    alias gpu5="export CUDA_VISIBLE_DEVICES='5'"
+    alias gpu6="export CUDA_VISIBLE_DEVICES='6'"
+    alias gpu7="export CUDA_VISIBLE_DEVICES='7'"
+fi
