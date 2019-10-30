@@ -64,6 +64,7 @@ elif [ $(uname -s) == Linux ]; then
     git clone https://github.com/rbenv/rbenv.git ~/.rbenv
     git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
     git clone https://github.com/rbenv/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+    sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
 fi
 source $HOME/.path.sh
 
