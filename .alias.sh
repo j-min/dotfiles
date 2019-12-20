@@ -43,16 +43,6 @@ if [[ `uname` == 'Darwin' ]]; then
     fi
 fi
 
-alias gpuX="export CUDA_VISIBLE_DEVICES=''"
-alias gpu0="export CUDA_VISIBLE_DEVICES='0'"
-alias gpu1="export CUDA_VISIBLE_DEVICES='1'"
-alias gpu2="export CUDA_VISIBLE_DEVICES='2'"
-alias gpu3="export CUDA_VISIBLE_DEVICES='3'"
-alias gpu4="export CUDA_VISIBLE_DEVICES='4'"
-alias gpu5="export CUDA_VISIBLE_DEVICES='5'"
-alias gpu6="export CUDA_VISIBLE_DEVICES='6'"
-alias gpu7="export CUDA_VISIBLE_DEVICES='7'"
-=======
 # NVIDIA GPU
 if [[ $(uname -s) == Linux ]]; then
 
