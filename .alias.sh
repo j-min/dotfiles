@@ -55,7 +55,7 @@ fi
 if [[ $(uname -s) == Linux ]]; then
 
     # gpustat
-    alias watchgpu='gpustat --watch -cp -n0.5'
+    alias watchgpu='gpustat --watch -cp'
 
     # nvidia-docker
     alias docker=nvidia-docker
