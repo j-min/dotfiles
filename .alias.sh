@@ -32,6 +32,14 @@ alias ls=lsd
 alias la='ls -a'
 alias lla='ls -la'
 
+
+# Conda environment
+# Create a conda env with data science packages
+# alias cenv='conda create --file ~/.make/conda-data-science-requirements.txt -n'
+alias workon='conda activate'
+alias deactivate='conda deactivate'
+
+
 # MacOS
 if [[ `uname` == 'Darwin' ]]; then
     # Macdown
