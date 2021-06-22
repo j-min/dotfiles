@@ -68,7 +68,7 @@ elif [ $(uname -s) == Linux ]; then
 fi
 source $HOME/.path.sh
 
-RUBY_VERSION='2.6.3'
+RUBY_VERSION='2.7.3'
 rbenv install $RUBY_VERSION
 rbenv global $RUBY_VERSION
 
@@ -86,7 +86,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # lsd
 if [ $(uname -s) == Linux ]; then
-    LSD_VERSION='0.16.0'
+    LSD_VERSION='0.20.1'
     wget https://github.com/Peltoche/lsd/releases/download/${LSD_VERSION}/lsd_${LSD_VERSION}_amd64.deb
     sudo dpkg -i lsd_${LSD_VERSION}_amd64.deb
     rm -f lsd_${LSD_VERSION}_amd64.deb
