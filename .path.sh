@@ -13,10 +13,11 @@ elif [[ -d "$HOME/anaconda3/bin" ]]; then
 fi
 
 # Ruby
+RUBY_VERSION='2.7.3'
 export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=$HOME/.rbenv/plugins/ruby-build/bin:$PATH
 eval "$(rbenv init -)"
-PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
+PATH=$HOME/.gem/ruby/$RUBY_VERSION/bin:$PATH
 
 # npm
 # npm config set prefix '~/.npm-global'
