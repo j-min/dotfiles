@@ -5,11 +5,11 @@ export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
 
-# Default Python: Anaconda
-if [[ -d "$HOME/anaconda/bin" ]]; then
-	export PATH=$HOME/anaconda/bin:$PATH
-elif [[ -d "$HOME/anaconda3/bin" ]]; then
-	export PATH=$HOME/anaconda3/bin:$PATH
+# Default Python: Miniconda
+if [[ -d "$HOME/miniconda/bin" ]]; then
+	export PATH=$HOME/miniconda/bin:$PATH
+elif [[ -d "$HOME/miniconda3/bin" ]]; then
+	export PATH=$HOME/miniconda3/bin:$PATH
 fi
 
 # Ruby

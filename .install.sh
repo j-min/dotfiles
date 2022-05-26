@@ -5,24 +5,23 @@ curl -fLo ~/.zsh/antigen.zsh --create-dirs \
     https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh
 
 
-################# Anaconda 3 #################
-ANACONDA_VERSION='2021.05'
+################# Miniconda3 #################
 if [[ $(uname -s) == Darwin ]]; then
-    curl -fLo /tmp/anaconda3.sh https://repo.anaconda.com/archive/Anaconda3-$ANACONDA_VERSION-MacOSX-x86_64.sh
+    curl -fLo /tmp/miniconda3_install.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 elif [[ $(uname -s) == Linux ]]; then
-    curl -fLo /tmp/anaconda3.sh https://repo.anaconda.com/archive/Anaconda3-$ANACONDA_VERSION-Linux-x86_64.sh
+    curl -fLo /tmp/miniconda3_install.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 fi
 
-bash /tmp/anaconda3.sh
+bash /tmp/miniconda3_install.sh
 
-# Add Anaconda to PATH
-export PATH=$HOME/anaconda3/bin:$PATH
+# Add Miniconda to PATH
+export PATH=$HOME/miniconda3/bin:$PATH
 
 # Add conda-forge channel
 # conda config --add channels conda-forge
 
 # Conda shel initilization init
-conda init zsh
+# conda init zsh
 
 # Ranger
 pip install ranger-fm
@@ -86,7 +85,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # lsd
 if [ $(uname -s) == Linux ]; then
-    LSD_VERSION='0.20.1'
+    LSD_VERSION='0.21.0'
     wget https://github.com/Peltoche/lsd/releases/download/${LSD_VERSION}/lsd_${LSD_VERSION}_amd64.deb
     sudo dpkg -i lsd_${LSD_VERSION}_amd64.deb
     rm -f lsd_${LSD_VERSION}_amd64.deb
