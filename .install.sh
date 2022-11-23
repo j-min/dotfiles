@@ -7,7 +7,7 @@ curl -fLo ~/.zsh/antigen.zsh --create-dirs \
 
 ################# Miniconda3 #################
 if [[ $(uname -s) == Darwin ]]; then
-    curl -fLo /tmp/miniconda3_install.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    curl -fLo /tmp/miniconda3_install.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
 elif [[ $(uname -s) == Linux ]]; then
     curl -fLo /tmp/miniconda3_install.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 fi
