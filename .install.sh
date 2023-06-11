@@ -67,7 +67,7 @@ elif [ $(uname -s) == Linux ]; then
 fi
 source $HOME/.path.sh
 
-RUBY_VERSION='2.7.3'
+RUBY_VERSION='3.2.2'
 rbenv install $RUBY_VERSION
 rbenv global $RUBY_VERSION
 
