@@ -14,6 +14,11 @@ export EDITOR=nvim
 # import environment path
 source $HOME/.path.sh
 
+# Configurations specific for local machines/servers
+if [ -f $HOME/.unc_specific_commands.sh ]; then
+    source $HOME/.unc_specific_commands.sh
+fi
+
 # Activate base anaconda envrionment
 source activate base
 
@@ -83,11 +88,6 @@ source $HOME/.alias.sh
 
 # Custom Functions
 source $HOME/.functions.sh
-
-# Specific Functions only for local machines/servers
-if [ -f $HOME/.unc_specific_commands.sh ]; then
-    source $HOME/.unc_specific_commands.sh
-fi
 
 
 # iterm2 integration
