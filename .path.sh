@@ -4,6 +4,9 @@ export PATH=$HOME/bin:$PATH
 
 export PATH=/usr/local/sbin:$PATH
 
+# HomeBrew
+export PATH=/opt/homebrew/bin:$PATH
+
 
 # Default Python: Miniconda
 if [[ -d "$HOME/miniconda/bin" ]]; then
