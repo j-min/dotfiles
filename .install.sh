@@ -7,7 +7,7 @@ curl -fLo ~/.zsh/antigen.zsh --create-dirs \
 
 ################# Miniconda3 #################
 if [[ $(uname -s) == Darwin ]]; then
-    curl -fLo /tmp/miniconda3_install.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    curl -fLo /tmp/miniconda3_install.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
 elif [[ $(uname -s) == Linux ]]; then
     curl -fLo /tmp/miniconda3_install.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 fi
@@ -67,7 +67,7 @@ elif [ $(uname -s) == Linux ]; then
 fi
 source $HOME/.path.sh
 
-RUBY_VERSION='2.7.3'
+RUBY_VERSION='3.2.2'
 rbenv install $RUBY_VERSION
 rbenv global $RUBY_VERSION
 
@@ -85,7 +85,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # lsd
 if [ $(uname -s) == Linux ]; then
-    LSD_VERSION='0.21.0'
+    LSD_VERSION='0.23.1'
     wget https://github.com/Peltoche/lsd/releases/download/${LSD_VERSION}/lsd_${LSD_VERSION}_amd64.deb
     sudo dpkg -i lsd_${LSD_VERSION}_amd64.deb
     rm -f lsd_${LSD_VERSION}_amd64.deb
