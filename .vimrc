@@ -83,15 +83,19 @@ au FileType python map <F2> : !python %:p
 nnoremap <silent> <F9> :!clear;python %:p<CR>
 
 " autocompletion with deocomplete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'zchee/deoplete-jedi'
-let g:deoplete#enable_at_startup = 1
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" Plug 'zchee/deoplete-jedi'
+" let g:deoplete#enable_at_startup = 1
+
+" autocomplete with github copilot
+Plug 'github/copilot.vim'
+
 
 " go-to-definition / refactor
 Plug 'davidhalter/jedi-vim'

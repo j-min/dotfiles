@@ -71,3 +71,5 @@ if [[ $(uname -s) == Linux ]]; then
     alias gpu6="export CUDA_VISIBLE_DEVICES='6'"
     alias gpu7="export CUDA_VISIBLE_DEVICES='7'"
 fi
+
+eval "$(gh copilot alias -- zsh)"
