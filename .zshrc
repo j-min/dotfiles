@@ -8,7 +8,7 @@ export TERM=xterm-256color
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export SHELL=zsh
-export EDITOR=vim
+export EDITOR=nvim
 
 
 # import environment path
@@ -83,6 +83,12 @@ source $HOME/.alias.sh
 
 # Custom Functions
 source $HOME/.functions.sh
+
+# Specific Functions only for local machines/servers
+if [ -f $HOME/.unc_specific_commands.sh ]; then
+    source $HOME/.unc_specific_commands.sh
+fi
+
 
 # iterm2 integration
 # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
