@@ -16,11 +16,16 @@ elif [[ -d "$HOME/miniconda3/bin" ]]; then
 fi
 
 # Ruby
-RUBY_VERSION='2.7.3'
+RUBY_VERSION='3.2.2'
 export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=$HOME/.rbenv/plugins/ruby-build/bin:$PATH
 eval "$(rbenv init -)"
 PATH=$HOME/.gem/ruby/$RUBY_VERSION/bin:$PATH
+
+# go
+if [[ -d "$HOME/go/bin" ]]; then
+    export PATH=$HOME/go/bin:$PATH
+fi
 
 # npm
 # npm config set prefix '~/.npm-global'
