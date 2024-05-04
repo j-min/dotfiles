@@ -10,8 +10,8 @@ windows:
       root: ~/workspace
       panes:
         - htop -d 5
-        - watch -n 1 nvidia-smi
-        - watchgpu
+        - nvitop
+        - 
         - jupyter lab --ip='0.0.0.0'
   - workspace:
       layout: even-vertical
