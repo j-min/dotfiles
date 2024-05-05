@@ -21,7 +21,9 @@ fi
 alias tmk='tmux kill-session'
 
 # Replacement for 'find'
-#unalias fd
+if [[ $(uname -s) == Linux ]]; then
+    unalias fd
+fi
 
 ## Replacement for 'ls'
 #if  [ -x "$(command -v exa)" ]; then
@@ -72,4 +74,14 @@ if [[ $(uname -s) == Linux ]]; then
     alias gpu7="export CUDA_VISIBLE_DEVICES='7'"
 fi
 
-eval "$(gh copilot alias -- zsh)"
+# if github cli is installed
+if [ -x "$(command -v gh)" ]; then
+    # if gh copilot is installed
+    if gh extension list | grep copilot > /dev/null 2>&1; then
+        eval "$(gh copilot alias -- zsh)"
+    fi
+fi
+
+
+
+
