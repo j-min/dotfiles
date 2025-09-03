@@ -1,5 +1,3 @@
-tap "homebrew/bundle"
-
 # Application Path
 cask_args appdir: "/Applications"
 
@@ -29,6 +27,8 @@ brew "ffmpeg"
 brew "neovim"
 brew "tmux"
 brew "gh"
+
+cask "font-hack-nerd-font"
 
 #cask "iterm2"
 #cask "google-chrome"

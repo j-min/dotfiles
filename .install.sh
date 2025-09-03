@@ -46,6 +46,7 @@ if [ $(uname -s) == Linux ]; then
     mv ./nvim.appimage nvim
     sudo mv nvim /usr/local/bin
 fi
+# neovim is installed via Brewfile for MacOSX
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
