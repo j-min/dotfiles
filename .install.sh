@@ -68,7 +68,7 @@ elif [ $(uname -s) == Linux ]; then
 fi
 source $HOME/.path.sh
 
-RUBY_VERSION='3.2.2'
+RUBY_VERSION='3.3.4'
 rbenv install $RUBY_VERSION
 rbenv global $RUBY_VERSION
 
@@ -91,3 +91,4 @@ if [ $(uname -s) == Linux ]; then
     sudo dpkg -i lsd_${LSD_VERSION}_amd64.deb
     rm -f lsd_${LSD_VERSION}_amd64.deb
 fi
+# lsd is installed via Brewfile for MacOSX
