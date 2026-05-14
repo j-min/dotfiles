@@ -16,7 +16,7 @@ elif [[ -d "$HOME/miniconda3/bin" ]]; then
 fi
 
 # Ruby
-RUBY_VERSION='3.2.2'
+RUBY_VERSION='3.3.4'
 export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=$HOME/.rbenv/plugins/ruby-build/bin:$PATH
 eval "$(rbenv init -)"
