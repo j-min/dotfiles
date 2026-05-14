@@ -52,7 +52,8 @@ done
 
 UNAME_S=$(uname -s)
 RUBY_VERSION='3.3.4'
-LSD_VERSION='0.23.1'
+# lsd-rs/lsd Linux: release tag vX.Y.Z, asset lsd-vX.Y.Z-<rust-triple>.tar.gz
+LSD_VERSION='1.2.0'
 
 have_cmd() { command -v "$1" >/dev/null 2>&1; }
 have_file() { [[ -f "$1" ]]; }
@@ -509,15 +510,39 @@ else
     skip_msg "TPM"
 fi
 
-# lsd
+# lsd (Linux): official .tar.gz — no dpkg/apt required
 if [ "$(uname -s)" == Linux ]; then
     if need_install is_lsd_installed; then
-        echo "[install] lsd (Linux): downloading and installing .deb..."
-        wget "https://github.com/Peltoche/lsd/releases/download/${LSD_VERSION}/lsd_${LSD_VERSION}_amd64.deb"
-        run_privileged dpkg -i "lsd_${LSD_VERSION}_amd64.deb"
-        rm -f "lsd_${LSD_VERSION}_amd64.deb"
+        lsd_target=
+        case "$(uname -m)" in
+            x86_64) lsd_target=x86_64-unknown-linux-gnu ;;
+            aarch64|arm64) lsd_target=aarch64-unknown-linux-gnu ;;
+            armv7l|armv6l) lsd_target=arm-unknown-linux-gnueabihf ;;
+            i686|i386) lsd_target=i686-unknown-linux-gnu ;;
+            *)
+                echo "[install] lsd: unsupported machine $(uname -m); pick a build from https://github.com/lsd-rs/lsd/releases" >&2
+                ;;
+        esac
+        if [[ -n "$lsd_target" ]]; then
+            lsd_tgz="lsd-v${LSD_VERSION}-${lsd_target}.tar.gz"
+            lsd_url="https://github.com/lsd-rs/lsd/releases/download/v${LSD_VERSION}/${lsd_tgz}"
+            lsd_root="lsd-v${LSD_VERSION}-${lsd_target}"
+            echo "[install] lsd (Linux): downloading ${lsd_tgz}..."
+            lsd_tmp=$(mktemp -d)
+            if curl -fsSL "$lsd_url" -o "$lsd_tmp/$lsd_tgz" &&
+                tar xzf "$lsd_tmp/$lsd_tgz" -C "$lsd_tmp" &&
+                [[ -x "$lsd_tmp/$lsd_root/lsd" ]]; then
+                mkdir -p "$HOME/.local/bin"
+                install -m 0755 "$lsd_tmp/$lsd_root/lsd" "$HOME/.local/bin/lsd"
+                rm -rf "$lsd_tmp"
+                echo "[install] lsd: installed ~/.local/bin/lsd (ensure ~/.local/bin is on your PATH)"
+            else
+                echo "[install] lsd: download or extract failed (url: $lsd_url)" >&2
+                rm -rf "$lsd_tmp"
+            fi
+        fi
     else
-        skip_msg "lsd (.deb)"
+        skip_msg "lsd (linux tarball)"
     fi
 fi
 # lsd is installed via Brewfile for MacOSX
