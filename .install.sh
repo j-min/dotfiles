@@ -3,11 +3,12 @@
 # ~/.install.sh — dotfiles bootstrap (shell tools, editors, Ruby, tmux, etc.)
 #
 # Usage:
-#   bash ~/.install.sh [--force]
+#   bash ~/.install.sh [--force] [--sudo]
 #   ~/.install.sh              # if executable: chmod +x ~/.install.sh
 #
 # Options:
 #   --force    Run every install step even when pre-flight checks look satisfied.
+#   --sudo     Use sudo for privileged Linux steps (apt/dpkg,/usr/local/bin writes).
 #
 # Behavior:
 #   1. Prints a pre-flight installation plan (INSTALLED / MISSING / SKIP).
@@ -18,29 +19,32 @@
 #   - bash (script uses bash-specific features)
 #   - Network access for curl, git, brew, conda, etc.
 #   - macOS: Ruby-based Homebrew installer; optional ~/.Brewfile for brew bundle
-#   - Linux: sudo for apt/dpkg steps and moving nvim into /usr/local/bin
+#   - Linux: use --sudo when privileged steps require elevation
 #
 # Predicate helpers and show_install_plan() share the same is_* checks below.
 
 INSTALL_FORCE=false
+INSTALL_USE_SUDO=false
 for arg in "$@"; do
     case "$arg" in
         --force) INSTALL_FORCE=true ;;
+        --sudo) INSTALL_USE_SUDO=true ;;
         -h | --help)
             cat <<'EOF'
-Usage: bash ~/.install.sh [--force]
+Usage: bash ~/.install.sh [--force] [--sudo]
 
   --force    Run every install step even when pre-flight checks look satisfied.
+  --sudo     Use sudo for privileged Linux steps (apt/dpkg,/usr/local/bin writes).
 
 By default, only components reported MISSING in the plan are installed; if
 nothing is missing, the script exits after the plan. See the header comment in
-this file for requirements (bash, network, sudo on Linux, etc.).
+this file for requirements (bash, network, Linux privilege model, etc.).
 EOF
             exit 0
             ;;
         *)
             echo "Unknown option: $arg" >&2
-            echo "Usage: bash $0 [--force]" >&2
+            echo "Usage: bash $0 [--force] [--sudo]" >&2
             exit 1
             ;;
     esac
@@ -115,6 +119,18 @@ need_install() {
 }
 
 skip_msg() { echo "[install] SKIP $* (already present; use --force to run anyway)"; }
+
+# Run a privileged command without forcing sudo by default.
+run_privileged() {
+    if ((EUID == 0)); then
+        "$@"
+    elif $INSTALL_USE_SUDO; then
+        sudo "$@"
+    else
+        echo "[install] SKIP requires elevated privileges: $* (re-run with --sudo)"
+        return 1
+    fi
+}
 
 # Set by show_install_plan: count of MISSING rows (including brew/cask lines).
 INSTALL_PLAN_MISSING=0
@@ -374,7 +390,7 @@ if [ "$(uname -s)" == Linux ]; then
         curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
         chmod u+x nvim.appimage
         mv ./nvim.appimage nvim
-        sudo mv nvim /usr/local/bin
+        run_privileged mv nvim /usr/local/bin
     else
         skip_msg "Neovim (Linux AppImage)"
     fi
@@ -432,7 +448,7 @@ elif [ "$(uname -s)" == Linux ]; then
         git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
         git clone https://github.com/rbenv/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
         echo "[install] Ruby: apt install build deps (libssl, readline, zlib)..."
-        sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
+        run_privileged apt-get install -y libssl-dev libreadline-dev zlib1g-dev
     else
         skip_msg "rbenv git clones + apt build deps"
     fi
@@ -473,7 +489,7 @@ fi
 if [ "$(uname -s)" == Linux ]; then
     if need_install is_tmux_installed; then
         echo "[install] Tmux (Linux): apt install tmux..."
-        sudo apt-get install tmux
+        run_privileged apt-get install tmux
     else
         skip_msg "tmux (apt)"
     fi
@@ -498,7 +514,7 @@ if [ "$(uname -s)" == Linux ]; then
     if need_install is_lsd_installed; then
         echo "[install] lsd (Linux): downloading and installing .deb..."
         wget "https://github.com/Peltoche/lsd/releases/download/${LSD_VERSION}/lsd_${LSD_VERSION}_amd64.deb"
-        sudo dpkg -i "lsd_${LSD_VERSION}_amd64.deb"
+        run_privileged dpkg -i "lsd_${LSD_VERSION}_amd64.deb"
         rm -f "lsd_${LSD_VERSION}_amd64.deb"
     else
         skip_msg "lsd (.deb)"
