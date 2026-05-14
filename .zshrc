@@ -7,7 +7,7 @@ SAVEHIST=10000
 export TERM=xterm-256color
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export SHELL=zsh
+export SHELL=/bin/zsh
 export EDITOR=nvim
 
 
@@ -91,4 +91,7 @@ source $HOME/.functions.sh
 
 
 # iterm2 integration
-# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"autoload -U compinit; compinit
+autoload -U compinit; compinit
+
+export BEAKER_TOKEN=$(beaker account token)
