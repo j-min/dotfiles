@@ -93,10 +93,6 @@ nnoremap <silent> <F9> :!clear;python %:p<CR>
 " Plug 'zchee/deoplete-jedi'
 " let g:deoplete#enable_at_startup = 1
 
-" autocomplete with github copilot
-Plug 'github/copilot.vim'
-
-
 " go-to-definition / refactor
 Plug 'davidhalter/jedi-vim'
 let g:jedi#usages_command = "<leader>m"
