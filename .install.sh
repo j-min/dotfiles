@@ -65,7 +65,10 @@ gem_has() { have_cmd gem && gem list -i "^$1$" >/dev/null 2>&1; }
 
 # --- Predicates (single source of truth for plan + skip logic) ---
 is_antigen_installed() { have_file "$HOME/.zsh/antigen.zsh"; }
-is_miniconda_installed() { have_dir "$HOME/miniconda3" || have_cmd conda; }
+# Check for a HOME conda specifically: ~/.path.sh and ~/.zshrc (source activate
+# base) assume conda lives under $HOME, so a system conda (e.g. /opt/anaconda3)
+# must NOT mask the need to install one here.
+is_miniconda_installed() { have_dir "$HOME/miniconda3" || have_dir "$HOME/miniconda"; }
 is_ranger_installed() { pip_has ranger-fm || have_cmd ranger; }
 is_brew_installed() { have_cmd brew; }
 is_vim_installed() { have_cmd vim; }
@@ -293,6 +296,20 @@ show_install_plan() {
     echo ""
 }
 
+# Make detection self-contained: tools we install land in ~/.local/bin (nvim,
+# lsd) or under ~/.rbenv (ruby/gem), and conda may live in ~/miniconda3. Put
+# these on PATH BEFORE the pre-flight plan so checks don't false-report MISSING
+# when the launching shell hasn't sourced ~/.path.sh (e.g. non-login bash).
+ensure_detection_path() {
+    [[ ":$PATH:" == *":$HOME/.local/bin:"* ]] || PATH="$HOME/.local/bin:$PATH"
+    [[ ":$PATH:" == *":$HOME/.rbenv/bin:"* ]] || PATH="$HOME/.rbenv/bin:$PATH"
+    [[ -d "$HOME/miniconda3/bin" && ":$PATH:" != *":$HOME/miniconda3/bin:"* ]] &&
+        PATH="$HOME/miniconda3/bin:$PATH"
+    export PATH
+    have_cmd rbenv && eval "$(rbenv init - bash 2>/dev/null)"
+}
+ensure_detection_path
+
 show_install_plan
 
 if ! $INSTALL_FORCE && ((INSTALL_PLAN_MISSING == 0)); then
@@ -318,8 +335,10 @@ if need_install is_miniconda_installed; then
     elif [[ $(uname -s) == Linux ]]; then
         curl -fLo /tmp/miniconda3_install.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     fi
-    echo "[install] Miniconda3: running installer..."
-    bash /tmp/miniconda3_install.sh
+    echo "[install] Miniconda3: running installer (batch, -> ~/miniconda3)..."
+    # -b batch (no prompts, no conda init -> won't clobber ~/.zshrc/.bashrc),
+    # -p target prefix under $HOME so ~/.path.sh picks it up.
+    bash /tmp/miniconda3_install.sh -b -p "$HOME/miniconda3"
 else
     skip_msg "Miniconda3 (download + installer)"
 fi
@@ -448,10 +467,20 @@ elif [ "$(uname -s)" == Linux ]; then
         git clone https://github.com/rbenv/rbenv.git ~/.rbenv
         git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
         git clone https://github.com/rbenv/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
-        echo "[install] Ruby: apt install build deps (libssl, readline, zlib)..."
-        run_privileged apt-get install -y libssl-dev libreadline-dev zlib1g-dev
     else
-        skip_msg "rbenv git clones + apt build deps"
+        skip_msg "rbenv git clones"
+    fi
+
+    # ruby-build needs these to compile Ruby and its bundled C extensions.
+    # libyaml-dev is required for psych (YAML) — without it the build fails.
+    if need_install is_rbenv_ruby_installed; then
+        echo "[install] Ruby: apt install build deps (openssl, readline, zlib, yaml, ffi, gdbm)..."
+        run_privileged apt-get install -y \
+            autoconf patch build-essential rustc \
+            libssl-dev libreadline-dev zlib1g-dev libyaml-dev \
+            libgmp-dev libncurses-dev libffi-dev libgdbm-dev uuid-dev
+    else
+        skip_msg "apt build deps for Ruby"
     fi
 fi
 
@@ -497,8 +526,12 @@ if [ "$(uname -s)" == Linux ]; then
 fi
 
 if need_install is_tmuxinator_installed; then
-    echo "[install] Tmuxinator: gem install --user-install..."
-    gem install --user-install tmuxinator
+    if have_cmd gem; then
+        echo "[install] Tmuxinator: gem install tmuxinator..."
+        gem install tmuxinator
+    else
+        echo "[install] SKIP tmuxinator (gem not on PATH; install Ruby first, then re-run)"
+    fi
 else
     skip_msg "tmuxinator"
 fi
