@@ -14,32 +14,34 @@ export EDITOR=nvim
 # import environment path
 source $HOME/.path.sh
 
-# Configurations specific for local machines/servers
-if [ -f $HOME/.unc_specific_commands.sh ]; then
-    source $HOME/.unc_specific_commands.sh
+# Workspace/local-only commands (kept out of git)
+if [ -f "$HOME/.zshrc.local" ]; then
+    source "$HOME/.zshrc.local"
+fi
+if [ -d "$HOME/.zshrc.local.d" ]; then
+    for local_zsh_file in "$HOME"/.zshrc.local.d/*.zsh; do
+        [ -e "$local_zsh_file" ] || continue
+        source "$local_zsh_file"
+    done
 fi
 
 # Activate base anaconda envrionment
 source activate base
 
-#####################
-## Antigen configs ##
-#####################
+####################################
+## Antigen: Configuration Start ##
+####################################
 
 # Load Antigen
 source $ZSH/antigen.zsh
-#ANTIGEN_PATH=~/.dotfiles
-#source $ANTIGEN_PATH/antigen/antigen.zsh
 
+# Load Oh-My-Zsh
 antigen use oh-my-zsh
 
 # Load various lib files
 antigen bundle robbyrussell/oh-my-zsh lib/
 
-# Antigen Theme
-# antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
-
-# POWER LEVEL 9k
+# Theme: POWER LEVEL 9k
 POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k/powerlevel9k.zsh-theme
 antigen theme https://github.com/bhilburn/powerlevel9k powerlevel9k
 # POWERLEVEL9K_MODE='awesome-patched'
@@ -52,36 +54,20 @@ POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND="blue"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs virtualenv anaconda)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
-# Antigen Bundles
-antigen bundle common-aliases
-antigen bundle git
-antigen bundle heroku
-antigen bundle command-not-found
-antigen bundle extract
-antigen bundle tmuxinator
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle web-search
-antigen bundle greymd/tmux-xpanes
-# antigen bundle chucknorris
-
-# For SSH, starting ssh-agent is annoying
-# antigen bundle ssh-agent
-
-# Node Plugins
-# antigen bundle coffee
-# antigen bundle node
-# antigen bundle npm
-# antigen bundle lukechilds/zsh-better-npm-completion
-
-# Python Plugins
-# antigen bundle python
-# antigen bundle virtualenv
+# Other Plugins
+antigen bundle common-aliases                      # Common convenience aliases.
+antigen bundle git                                 # Git aliases and completion.
+antigen bundle command-not-found                   # Suggest package for missing commands.
+antigen bundle extract                             # Extract many archive formats with one command.
+antigen bundle tmuxinator                          # Completion/helpers for tmuxinator projects.
+antigen bundle zsh-users/zsh-syntax-highlighting   # Colorize valid/invalid command syntax.
+antigen bundle zsh-users/zsh-autosuggestions       # Inline suggestions from history.
+antigen bundle greymd/tmux-xpanes                  # Helpers for parallel tmux pane commands.
 
 antigen apply
-#############################
-# Antigen configration Done #
-#############################
+####################################
+# Antigen: Configuration Done
+####################################
 
 # Alias Control
 source $HOME/.alias.sh
@@ -89,9 +75,5 @@ source $HOME/.alias.sh
 # Custom Functions
 source $HOME/.functions.sh
 
-
 # iterm2 integration
-# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"autoload -U compinit; compinit
 autoload -U compinit; compinit
-
-export BEAKER_TOKEN=$(beaker account token)

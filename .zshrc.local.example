@@ -1,0 +1,15 @@
+# ~/.zshrc.local.example
+# Copy to ~/.zshrc.local and customize per machine/workspace.
+#
+#   cp ~/.zshrc.local.example ~/.zshrc.local
+#
+# This file is sourced by ~/.zshrc when present.
+# Keep secrets and machine-specific commands here (untracked).
+
+# Example: export tokens from local CLI only when available
+if command -v beaker >/dev/null 2>&1; then
+    export BEAKER_TOKEN="$(beaker account token)"
+fi
+
+# Add workspace-specific aliases/functions below.
+# alias proj='cd ~/workspace/my-project'
